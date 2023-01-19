@@ -10,6 +10,7 @@ int32_t circularBuffhead = 0;
 
 void circularbuffPush(int32_t value) {
     if ((circularBufftail + 1) % BufferSize == circularBuffhead) {
+        cout<<"Buffer Full\n";
         return;
     }
 
@@ -19,6 +20,7 @@ void circularbuffPush(int32_t value) {
 
 int32_t circularbuffPop() {
     if (circularBuffhead == circularBufftail) {
+        cout<<"Buffer Empty\n";
         return -1;
     }
 
@@ -29,8 +31,8 @@ int32_t circularbuffPop() {
 
 int main(){
     for(int i=0;i<10;i++){
-        circularbuffPush(i);
+        circularbuffPush(i); //Input - Use circularbuffPush and pass the value to store in it.
 
-        cout<<circularbuffPop()<<"\n";
+        cout<<circularbuffPop()<<"\n";  //Output - Use circularbuffPop
     }
 }
